@@ -35,11 +35,6 @@ th, td {
 </head>
 <body>
 	<div class="form-group">
-		<c:if test="${not empty nomeEmpresa }">
-			Empresa ${nomeEmpresa} - <fmt:formatDate value="${dataAbertura}"
-				pattern="dd/MM/yyyy" /> cadastrada com sucesso!
-		</c:if>
-		<hr>
 		<b>Lista de Empresas | <a href="${unicoLink}?acao=NovaEmpresa">+ Nova Empresa</a></b>
 		<hr>
 		<div align="center">

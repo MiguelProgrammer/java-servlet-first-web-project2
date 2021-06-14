@@ -37,11 +37,10 @@ public class NovaEmpresa extends AcaoEmpresa {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		request.setAttribute("nomeEmpresa", empresa.getNome());
-		request.setAttribute("dataAbertura", empresa.getDataAbertura());
+		request.setAttribute("nomeEmpresas", empresa);
 		
 
-		return "forward:listaEmpresa.jsp";
+		return "redirect:entrada?acao=ListaEmpresas";
 		
 	}
 
