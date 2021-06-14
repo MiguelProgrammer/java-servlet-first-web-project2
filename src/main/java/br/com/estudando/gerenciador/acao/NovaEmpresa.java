@@ -15,7 +15,7 @@ import br.com.estudando.gerenciador.modelo.Empresa;
 public class NovaEmpresa extends AcaoEmpresa {
 
 	@Override
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Gravando Nova Empresa");
 		
@@ -41,7 +41,7 @@ public class NovaEmpresa extends AcaoEmpresa {
 		request.setAttribute("dataAbertura", empresa.getDataAbertura());
 		
 
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "forward:listaEmpresa.jsp";
 		
 	}
 

@@ -15,7 +15,7 @@ import br.com.estudando.gerenciador.modelo.Empresa;
 public class EditarEmpresa extends AcaoEmpresa {
 
 	@Override
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		System.out.println("Editando a Empresa;");
 
@@ -36,7 +36,7 @@ public class EditarEmpresa extends AcaoEmpresa {
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dtAbertura);
 
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 
 	}
 }

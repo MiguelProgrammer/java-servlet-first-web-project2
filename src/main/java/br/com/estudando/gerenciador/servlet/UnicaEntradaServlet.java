@@ -24,31 +24,40 @@ public class UnicaEntradaServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String acao = request.getParameter("acao");
+		String pagina = null;
 
 		if (acao.equals("ListaEmpresas")) {
 
 			ListaEmpresas le = new ListaEmpresas();
-			le.executa(request, response);
+			pagina = le.executa(request, response);
 
 		} else if (acao.equals("RemoverEmpresa")) {
 			RemoveEmpresa re = new RemoveEmpresa();
-			re.executa(request, response);
+			pagina = re.executa(request, response);
 		} else if (acao.equals("EditarEmpresa")) {
 			Banco bb = new Banco();
 			Empresa emp = bb.buscaEmpresaPorId((Integer.parseInt(request.getParameter("idEmpresa"))));
-
 			request.setAttribute("empresa", emp);
 			RequestDispatcher rd = request.getRequestDispatcher("/FormAlteraEmpresa.jsp");
 			rd.forward(request, response);
 		} else if (acao.equals("AtualizarEmpresa")) {
 			EditarEmpresa ee = new EditarEmpresa();
-			ee.executa(request, response);
+			pagina = ee.executa(request, response);
 		} else if (acao.equals("NovaEmpresa")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/FormNovaEmpresa.jsp");
 			rd.forward(request, response);
 		} else if (acao.equals("InserirNovaEmpresa")) {
 			NovaEmpresa ne = new NovaEmpresa();
-			ne.executa(request, response);
+			pagina = ne.executa(request, response);
+		}
+
+		String[] acaoPagina = pagina.split(":");
+
+		if (acaoPagina[0].equals("forward")) {
+			RequestDispatcher rd = request.getRequestDispatcher(acaoPagina[1]);
+			rd.forward(request, response);
+		} else {
+			response.sendRedirect(acaoPagina[1]);
 		}
 
 	}

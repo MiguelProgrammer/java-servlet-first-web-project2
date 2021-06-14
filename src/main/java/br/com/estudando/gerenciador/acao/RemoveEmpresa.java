@@ -11,12 +11,13 @@ import br.com.estudando.gerenciador.modelo.Banco;
 public class RemoveEmpresa extends AcaoEmpresa {
 	
 	@Override
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		System.out.println("Removendo Empresas");
 		
 		Banco banco = new Banco();
 		banco.remover(Integer.parseInt(request.getParameter("idEmpresa")));
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+
+		return "redirect:entrada?acao=ListaEmpresas";
 	}
 }

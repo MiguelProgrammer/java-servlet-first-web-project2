@@ -11,6 +11,6 @@ import org.apache.catalina.connector.Response;
 public abstract class AcaoEmpresa {
 
 
-	public abstract void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+	public abstract String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
 }
