@@ -4,33 +4,74 @@
 <%@ page import="br.com.estudando.gerenciador.servlet.*,java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:url value="/removeEmpresa" var="removerEmpresa" />
-<c:url value="/mostraEmpresa" var="editarEmpresa" />
+<c:url value="/entrada" var="unicoLink" />
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+table {
+	border: 1px solid lightgray;
+	border-radius: 3px;
+}
+
+th, td {
+	border: 1px solid lightgray;
+}
+
+#editar {
+	background-color: blue;
+}
+
+#remover {
+	background-color: red;
+}
+
+#editar, #remover {
+	color: white;
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Java Standard Taglib</title>
 </head>
 <body>
 	<div class="form-group">
-		<hr>
 		<c:if test="${not empty nomeEmpresa }">
 			Empresa ${nomeEmpresa} - <fmt:formatDate value="${dataAbertura}"
 				pattern="dd/MM/yyyy" /> cadastrada com sucesso!
 		</c:if>
 		<hr>
-		<p>Lista de Empresas</p>
+		<b>Lista de Empresas | <a href="${unicoLink}?acao=NovaEmpresa">+ Nova Empresa</a></b>
 		<hr>
-		<ul>
-			<c:forEach items="${nomeEmpresas}" var="emp">
-				<li>${emp.id} : ${emp.nome} - <fmt:formatDate value="${emp.dataAbertura}"
-						pattern="dd/MM/yyyy" />
-						<a href="${editarEmpresa}?idEmpresa=${emp.id}"> Editar</a>
-						<a href="${removerEmpresa}?idEmpresa=${emp.id}"> Remover</a>
-				</li>
-			</c:forEach>
-		</ul>
+		<div align="center">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>NOME EMPRESA</th>
+						<th>DATA DE ABERTURA</th>
+						<th>AÇÃO</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${nomeEmpresas}" var="emp">
+						<tr>
+							<td>${emp.id}</td>
+							<td>${emp.nome}</td>
+							<td><fmt:formatDate value="${emp.dataAbertura}"
+									pattern="dd/MM/yyyy" /></td>
+							<td>
+								<a id="editar"
+									= href="${unicoLink}?acao=EditarEmpresa&idEmpresa=${emp.id}">
+									Editar</a>
+								<a id="remover"
+									href="${unicoLink}?acao=RemoverEmpresa&idEmpresa=${emp.id}">
+									Remover</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

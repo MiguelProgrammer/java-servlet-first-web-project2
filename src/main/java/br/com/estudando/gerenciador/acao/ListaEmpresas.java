@@ -11,15 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.estudando.gerenciador.modelo.Banco;
 import br.com.estudando.gerenciador.modelo.Empresa;
 
-public class ListaEmpresas {
+public class ListaEmpresas extends AcaoEmpresa {
 	
+	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("Listando Empresas");
+		
 		Banco banco = new Banco();
 		List<Empresa> listaEmpresas = banco.getEmpresas();
 
 		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresa.jsp");
 		request.setAttribute("nomeEmpresas", listaEmpresas);
-		System.out.println("CLASSE LISTAEMPRESAS");
 		rd.forward(request, response);
 	}
 

@@ -1,4 +1,4 @@
-package br.com.estudando.gerenciador.servlet;
+ 	package br.com.estudando.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -6,26 +6,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.estudando.gerenciador.modelo.Banco;
 import br.com.estudando.gerenciador.modelo.Empresa;
 
+public class NovaEmpresa extends AcaoEmpresa {
 
-@WebServlet("/alteraEmpresa")
-public class AlteraEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("Gravando Nova Empresa");
+		
+		Empresa empresa = new Empresa();
 		String nomeEmpresa = request.getParameter("nome");
+		empresa.setNome(nomeEmpresa);
+		
+
 		String dataAbertura = request.getParameter("data");
 		Date dtAbertura = null;
-		
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			dtAbertura = sdf.parse(dataAbertura);
@@ -33,14 +33,16 @@ public class AlteraEmpresaServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 
-		Banco banco = new Banco();
-		Empresa empresa = banco.buscaEmpresaPorId(Integer.parseInt(request.getParameter("idEmpresa")));
-
-		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dtAbertura);
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
 		
-		response.sendRedirect("listaEmpresas");
+		request.setAttribute("nomeEmpresa", empresa.getNome());
+		request.setAttribute("dataAbertura", empresa.getDataAbertura());
+		
 
+		response.sendRedirect("entrada?acao=ListaEmpresas");
+		
 	}
 
 }
