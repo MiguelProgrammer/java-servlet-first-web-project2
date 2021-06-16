@@ -35,7 +35,7 @@ th, td {
 </head>
 <body>
 	<div class="form-group">
-		<b>Lista de Empresas | <a href="${unicoLink}?acao=NovaEmpresa">+ Nova Empresa</a></b>
+		<b>Lista de Empresas | <a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a></b>
 		<hr>
 		<div align="center">
 			<table>
@@ -56,7 +56,7 @@ th, td {
 									pattern="dd/MM/yyyy" /></td>
 							<td>
 								<a id="editar"
-									= href="${unicoLink}?acao=EditarEmpresa&idEmpresa=${emp.id}">
+									href="${unicoLink}?acao=MostraEmpresa&idEmpresa=${emp.id}">
 									Editar</a>
 								<a id="remover"
 									href="${unicoLink}?acao=RemoverEmpresa&idEmpresa=${emp.id}">

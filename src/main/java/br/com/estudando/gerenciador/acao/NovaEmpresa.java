@@ -1,4 +1,4 @@
- 	package br.com.estudando.gerenciador.acao;
+package br.com.estudando.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,16 +15,13 @@ import br.com.estudando.gerenciador.modelo.Empresa;
 public class NovaEmpresa extends AcaoEmpresa {
 
 	@Override
-	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("Gravando Nova Empresa");
-		
+	public String executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		Empresa empresa = new Empresa();
 		String nomeEmpresa = request.getParameter("nome");
-		empresa.setNome(nomeEmpresa);
-		
-
 		String dataAbertura = request.getParameter("data");
+		
 		Date dtAbertura = null;
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -33,15 +30,18 @@ public class NovaEmpresa extends AcaoEmpresa {
 			throw new ServletException(e);
 		}
 
+		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(dtAbertura);
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-		
-		request.setAttribute("nomeEmpresas", empresa);
-		
 
-		return "redirect:entrada?acao=ListaEmpresas";
-		
+		request.setAttribute("novaEmpresa", empresa);
+		return "forward:listaEmpresa.jsp";
+
+		/*
+		 * FORWARD - envia diretamente para a pagina
+		 */
+
 	}
 
 }

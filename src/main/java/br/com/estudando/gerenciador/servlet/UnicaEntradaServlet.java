@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.estudando.gerenciador.acao.EditarEmpresa;
 import br.com.estudando.gerenciador.acao.ListaEmpresas;
+import br.com.estudando.gerenciador.acao.MostraEmpresa;
 import br.com.estudando.gerenciador.acao.NovaEmpresa;
+import br.com.estudando.gerenciador.acao.NovaEmpresaForm;
 import br.com.estudando.gerenciador.acao.RemoveEmpresa;
-import br.com.estudando.gerenciador.modelo.Banco;
-import br.com.estudando.gerenciador.modelo.Empresa;
 
 @WebServlet("/entrada")
 public class UnicaEntradaServlet extends HttpServlet {
@@ -27,37 +27,37 @@ public class UnicaEntradaServlet extends HttpServlet {
 		String pagina = null;
 
 		if (acao.equals("ListaEmpresas")) {
-
 			ListaEmpresas le = new ListaEmpresas();
 			pagina = le.executa(request, response);
-
 		} else if (acao.equals("RemoverEmpresa")) {
 			RemoveEmpresa re = new RemoveEmpresa();
 			pagina = re.executa(request, response);
 		} else if (acao.equals("EditarEmpresa")) {
-			Banco bb = new Banco();
-			Empresa emp = bb.buscaEmpresaPorId((Integer.parseInt(request.getParameter("idEmpresa"))));
-			request.setAttribute("empresa", emp);
-			RequestDispatcher rd = request.getRequestDispatcher("/FormAlteraEmpresa.jsp");
-			rd.forward(request, response);
-		} else if (acao.equals("AtualizarEmpresa")) {
-			EditarEmpresa ee = new EditarEmpresa();
+				EditarEmpresa ee = new EditarEmpresa();
 			pagina = ee.executa(request, response);
+		} else if (acao.equals("MostraEmpresa")) {
+			MostraEmpresa me = new MostraEmpresa();
+			pagina = me.executa(request, response);
 		} else if (acao.equals("NovaEmpresa")) {
-			RequestDispatcher rd = request.getRequestDispatcher("/FormNovaEmpresa.jsp");
-			rd.forward(request, response);
-		} else if (acao.equals("InserirNovaEmpresa")) {
 			NovaEmpresa ne = new NovaEmpresa();
 			pagina = ne.executa(request, response);
+		} else if (acao.equals("NovaEmpresaForm")) {
+			NovaEmpresaForm nef = new NovaEmpresaForm();
+			pagina = nef.executa(request, response);
 		}
+		
+		if(pagina != null) {
 
-		String[] acaoPagina = pagina.split(":");
+			String[] acaoPagina = pagina.split(":");
 
-		if (acaoPagina[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher(acaoPagina[1]);
-			rd.forward(request, response);
-		} else {
-			response.sendRedirect(acaoPagina[1]);
+			if (acaoPagina[0].equals("forward")) {
+				System.out.println("WEB-INF/view/" + acaoPagina[1]);
+				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + acaoPagina[1]);
+				rd.forward(request, response);
+				
+			} else {
+				response.sendRedirect(acaoPagina[1]);
+			}
 		}
 
 	}
