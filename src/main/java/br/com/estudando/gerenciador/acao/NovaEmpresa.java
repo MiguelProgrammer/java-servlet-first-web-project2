@@ -22,6 +22,7 @@ public class NovaEmpresa extends AcaoEmpresa {
 		String dataAbertura = request.getParameter("data");
 		
 		Date dtAbertura = null;
+		
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			dtAbertura = sdf.parse(dataAbertura);
@@ -36,10 +37,6 @@ public class NovaEmpresa extends AcaoEmpresa {
 		
 		request.setAttribute("novaEmpresa", banco.buscaEmpresaPorId(empresa.getId()));
 		return "forward:listaEmpresa.jsp";
-		
-		/*
-		 * FORWARD - envia diretamente para a pagina
-		 */
 
 	}
 
