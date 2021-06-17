@@ -16,7 +16,7 @@ public class ListaEmpresas extends AcaoEmpresa {
 		
 		Banco banco = new Banco();
 		List<Empresa> listaEmpresas = banco.getEmpresas();
-
+		listaEmpresas.sort((e1, e2) -> { return e1.getNome().compareTo(e2.getNome()); });
 		request.setAttribute("nomeEmpresas", listaEmpresas);
 
 		return "forward:listaEmpresas.jsp";
