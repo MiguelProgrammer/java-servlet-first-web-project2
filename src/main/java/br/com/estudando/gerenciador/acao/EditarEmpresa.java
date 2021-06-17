@@ -14,7 +14,6 @@ import br.com.estudando.gerenciador.modelo.Empresa;
 
 public class EditarEmpresa extends AcaoEmpresa {
 
-	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

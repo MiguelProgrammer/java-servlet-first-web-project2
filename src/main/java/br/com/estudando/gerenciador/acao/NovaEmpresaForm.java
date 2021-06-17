@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class NovaEmpresaForm extends AcaoEmpresa {
 	
-	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		return "forward:formNovaEmpresa.jsp";
 	}

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class AcaoEmpresa {
 
-
 	public abstract String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	
 }

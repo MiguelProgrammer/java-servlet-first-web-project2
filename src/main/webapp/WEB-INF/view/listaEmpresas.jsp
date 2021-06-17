@@ -59,7 +59,7 @@ th, td {
 									href="${unicoLink}?acao=MostraEmpresa&idEmpresa=${emp.id}">
 									Editar</a>
 								<a id="remover"
-									href="${unicoLink}?acao=RemoverEmpresa&idEmpresa=${emp.id}">
+									href="${unicoLink}?acao=RemoveEmpresa&idEmpresa=${emp.id}">
 									Remover</a>
 							</td>
 						</tr>

@@ -14,7 +14,6 @@ import br.com.estudando.gerenciador.modelo.Empresa;
 
 public class NovaEmpresa extends AcaoEmpresa {
 
-	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -34,10 +33,10 @@ public class NovaEmpresa extends AcaoEmpresa {
 		empresa.setDataAbertura(dtAbertura);
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-
-		request.setAttribute("novaEmpresa", empresa);
+		
+		request.setAttribute("novaEmpresa", banco.buscaEmpresaPorId(empresa.getId()));
 		return "forward:listaEmpresa.jsp";
-
+		
 		/*
 		 * FORWARD - envia diretamente para a pagina
 		 */

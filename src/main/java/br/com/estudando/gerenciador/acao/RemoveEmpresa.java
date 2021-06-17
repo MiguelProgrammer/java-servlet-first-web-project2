@@ -10,11 +10,8 @@ import br.com.estudando.gerenciador.modelo.Banco;
 
 public class RemoveEmpresa extends AcaoEmpresa {
 	
-	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("Removendo Empresas");
-		
 		Banco banco = new Banco();
 		banco.remover(Integer.parseInt(request.getParameter("idEmpresa")));
 

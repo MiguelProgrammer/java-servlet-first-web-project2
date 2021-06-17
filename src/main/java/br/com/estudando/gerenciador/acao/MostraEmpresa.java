@@ -11,10 +11,7 @@ import br.com.estudando.gerenciador.modelo.Empresa;
 
 public class MostraEmpresa extends AcaoEmpresa {
 	
-	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println("Editando a Empresa;");
 		
 		Banco bb = new Banco();
 		

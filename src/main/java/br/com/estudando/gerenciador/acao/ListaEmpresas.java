@@ -11,8 +11,7 @@ import br.com.estudando.gerenciador.modelo.Banco;
 import br.com.estudando.gerenciador.modelo.Empresa;
 
 public class ListaEmpresas extends AcaoEmpresa {
-	
-	@Override
+
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Banco banco = new Banco();

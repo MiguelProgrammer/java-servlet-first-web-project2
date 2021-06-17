@@ -49,14 +49,12 @@ th, td {
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${novaEmpresa}" var="emp">
-						<tr>
-							<td>${emp.id}</td>
-							<td>${emp.nome}</td>
-							<td><fmt:formatDate value="${emp.dataAbertura}"
-									pattern="dd/MM/yyyy" /></td>
-						</tr>
-					</c:forEach>
+					<tr>
+						<td>${novaEmpresa.id}</td>
+						<td>${novaEmpresa.nome}</td>
+						<td><fmt:formatDate value="${novaEmpresa.dataAbertura}"
+								pattern="dd/MM/yyyy" /></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
