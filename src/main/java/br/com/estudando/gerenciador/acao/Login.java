@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.estudando.gerenciador.modelo.Banco;
 import br.com.estudando.gerenciador.modelo.Usuario;
@@ -26,6 +27,10 @@ public class Login extends Acao {
 		
 		if(laranja.eIgual(login, senha) && bb.existeUsuario(laranja) != null) {
 			System.out.println(login + " Acessando ...");
+			
+			HttpSession sessao = request.getSession();
+			sessao.setAttribute("usuarioLogado", laranja);
+			
 			return "redirect:entrada?acao=ListaEmpresas";
 		}
 		

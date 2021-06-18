@@ -23,12 +23,12 @@ public class Banco {
 		listaEmpresas.add(empresa2);
 		
 		Usuario s1 = new Usuario();
-		s1.setLogin("1234");
-		s1.setSenha("4321");
+		s1.setLogin("MiguelSilva");
+		s1.setSenha("1234");
 		
 		Usuario s2 = new Usuario();
-		s2.setLogin("1234");
-		s2.setSenha("4321");
+		s2.setLogin("JessicaSilva");
+		s2.setSenha("1234");
 
 		listaUsuarios.add(s1);
 		listaUsuarios.add(s2);
