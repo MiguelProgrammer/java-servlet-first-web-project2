@@ -7,6 +7,7 @@ import java.util.List;
 public class Banco {
 
 	private static List<Empresa> listaEmpresas = new ArrayList<>();
+	private static List<Usuario> listaUsuarios = new ArrayList<>();
 	private static Integer idSequencial = 1;
 
 	static {
@@ -18,6 +19,17 @@ public class Banco {
 		empresa2.setId(idSequencial++);
 		empresa2.setNome("Nossa Empresa - jP");
 		listaEmpresas.add(empresa2);
+		
+		Usuario s1 = new Usuario();
+		s1.setLogin("1234");
+		s1.setSenha("4321");
+		
+		Usuario s2 = new Usuario();
+		s2.setLogin("1234");
+		s2.setSenha("4321");
+
+		listaUsuarios.add(s1);
+		listaUsuarios.add(s2);
 	}
 	
 	@SuppressWarnings("static-access")

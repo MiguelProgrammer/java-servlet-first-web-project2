@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.estudando.gerenciador.modelo.Banco;
 
-public class RemoveEmpresa extends AcaoEmpresa {
+public class RemoveEmpresa extends Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

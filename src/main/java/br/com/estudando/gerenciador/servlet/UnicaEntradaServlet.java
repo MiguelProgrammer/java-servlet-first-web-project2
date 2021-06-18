@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.estudando.gerenciador.acao.AcaoEmpresa;
+import br.com.estudando.gerenciador.acao.Acao;
 import br.com.estudando.gerenciador.acao.EditarEmpresa;
 import br.com.estudando.gerenciador.acao.ListaEmpresas;
 import br.com.estudando.gerenciador.acao.MostraEmpresa;
@@ -31,7 +31,7 @@ public class UnicaEntradaServlet extends HttpServlet {
 		try {
 			Class classe = Class.forName(nomeDaClasse);
 			@SuppressWarnings("deprecation")
-			AcaoEmpresa ae = (AcaoEmpresa) classe.newInstance();
+			Acao ae = (Acao) classe.newInstance();
 			pagina = ae.executa(request, response);
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | ServletException
 				| IOException e) {

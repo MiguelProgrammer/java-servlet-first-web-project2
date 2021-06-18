@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.estudando.gerenciador.modelo.Banco;
 import br.com.estudando.gerenciador.modelo.Empresa;
 
-public class EditarEmpresa extends AcaoEmpresa {
+public class EditarEmpresa extends Acao {
 
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
