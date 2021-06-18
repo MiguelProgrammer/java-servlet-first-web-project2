@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.estudando.gerenciador.modelo.Banco;
 import br.com.estudando.gerenciador.modelo.Usuario;
 
 public class Login extends Acao {
@@ -21,7 +22,9 @@ public class Login extends Acao {
 		laranja.setLogin(login);
 		laranja.setSenha(senha);
 		
-		if(laranja.eIgual(login, senha)) {
+		Banco bb = new Banco();
+		
+		if(laranja.eIgual(login, senha) && bb.existeUsuario(laranja) != null) {
 			System.out.println(login + " Acessando ...");
 			return "redirect:entrada?acao=ListaEmpresas";
 		}

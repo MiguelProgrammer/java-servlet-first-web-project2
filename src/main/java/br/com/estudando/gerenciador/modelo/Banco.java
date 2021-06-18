@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.estudando.gerenciador.acao.Login;
+
 public class Banco {
 
 	private static List<Empresa> listaEmpresas = new ArrayList<>();
@@ -60,6 +62,15 @@ public class Banco {
 		for (Empresa emp : getEmpresas()) {
 			if(emp.getId() == idEmpresa) {
 				return emp;
+			}
+		}
+		return null;
+	}
+
+	public Usuario existeUsuario(Usuario laranja) {
+		for(Usuario fulano : listaUsuarios) {
+			if(fulano.eIgual(laranja.getLogin(), laranja.getSenha())) {
+				return fulano;
 			}
 		}
 		return null;
