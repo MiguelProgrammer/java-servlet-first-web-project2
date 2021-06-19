@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.estudando.gerenciador.acao.Acao;
 import br.com.estudando.gerenciador.acao.EditarEmpresa;
@@ -28,6 +29,14 @@ public class UnicaEntradaServlet extends HttpServlet {
 		String nomeDaClasse = "br.com.estudando.gerenciador.acao." + acao;
 		String pagina = null;
 		
+		HttpSession sessao = request.getSession();
+		Boolean paginaProtegida = !acao.equals("Login") && !acao.equals("LoginForm");
+		
+		if(paginaProtegida && sessao.getAttribute("usuarioLogado") == null) {
+			response.sendRedirect("entrada?acao=LoginForm");
+			return;
+		}
+		
 		try {
 			Class classe = Class.forName(nomeDaClasse);
 			@SuppressWarnings("deprecation")
@@ -37,7 +46,7 @@ public class UnicaEntradaServlet extends HttpServlet {
 				| IOException e) {
 			throw new ServletException(e);
 		}
-		
+				
 		String[] acaoPagina = pagina.split(":");
 
 		if (acaoPagina[0].equals("forward")) {
@@ -46,26 +55,6 @@ public class UnicaEntradaServlet extends HttpServlet {
 		} else {
 			response.sendRedirect(acaoPagina[1]);
 		}
-
-//		if (acao.equals("ListaEmpresas")) {
-//			ListaEmpresas le = new ListaEmpresas();
-//			pagina = le.executa(request, response);
-//		} else if (acao.equals("RemoverEmpresa")) {
-//			RemoveEmpresa re = new RemoveEmpresa();
-//			pagina = re.executa(request, response);
-//		} else if (acao.equals("EditarEmpresa")) {
-//			EditarEmpresa ee = new EditarEmpresa();
-//			pagina = ee.executa(request, response);
-//		} else if (acao.equals("MostraEmpresa")) {
-//			MostraEmpresa me = new MostraEmpresa();
-//			pagina = me.executa(request, response);
-//		} else if (acao.equals("NovaEmpresa")) {
-//			NovaEmpresa ne = new NovaEmpresa();
-//			pagina = ne.executa(request, response);
-//		} else if (acao.equals("NovaEmpresaForm")) {
-//			NovaEmpresaForm nef = new NovaEmpresaForm();
-//			pagina = nef.executa(request, response);
-//		}
 
 	}
 
