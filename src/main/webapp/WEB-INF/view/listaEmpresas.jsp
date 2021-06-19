@@ -37,7 +37,6 @@ th, td {
 
 	<div style="text-align: right;background-color: whitesmoke">
 	<hr>
-	
 	<b style="margin-right:60%">Lista de Empresas | 
 		<a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a>
 	</b>
@@ -45,7 +44,6 @@ th, td {
 		Usuário logado: ${usuarioLogado.login}
 		<c:import url="logout-parcial.jsp"/>
 	</b>
-	
 	<hr>
 	</div>
 
