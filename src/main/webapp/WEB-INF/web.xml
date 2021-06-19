@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns = "http://java.sun.com/xml/ns/j2ee"
+     versão = "1.0">
+
+	<display-name>gerenciador</display-name>
+	<welcome-file-list>
+		<welcome-file>bem-vindo.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- FILTRO UM -->
+	<filter>
+		<filter-name>FM</filter-name>
+		<filter-class>br.com.estudando.gerenciador.servlet.FiltroMonitoramento</filter-class>
+	</filter>
+
+	<filter-mapping>
+	    <filter-name>FM</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- FILTRO DOIS -->
+	
+	
+	<filter>
+		<filter-name>AF</filter-name>
+		<filter-class>br.com.estudando.gerenciador.servlet.AutorizacaoFiltro</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AF</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- FILTRO TRÊS -->
+	<filter>
+		<filter-name>CF</filter-name>
+		<filter-class>br.com.estudando.gerenciador.servlet.ControladorFiltro</filter-class>
+	</filter>
+
+	<filter-mapping>
+	    <filter-name>CF</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
