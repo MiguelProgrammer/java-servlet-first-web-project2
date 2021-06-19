@@ -37,13 +37,20 @@ th, td {
 
 	<div style="text-align: right;background-color: whitesmoke">
 	<hr>
-	<b style="margin:2%">Usuário logado: ${usuarioLogado.login}</b>
+	
+	<b style="margin-right:60%">Lista de Empresas | 
+		<a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a>
+	</b>
+	<b style="margin:2%">
+		Usuário logado: ${usuarioLogado.login}
+		<c:import url="logout-parcial.jsp"/>
+	</b>
+	
 	<hr>
 	</div>
 
 	<div class="form-group">
-		<b>Lista de Empresas | <a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a></b>
-		<hr>
+
 		<div align="center">
 			<table>
 				<thead>

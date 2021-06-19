@@ -34,11 +34,20 @@ th, td {
 <title>Java Standard Taglib</title>
 </head>
 <body>
+
+	<div style="text-align: right;background-color: whitesmoke">
+	<hr>
+	<b style="margin-right:50%">Empresas
+		| <a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a>
+		| <a href="${unicoLink}?acao=ListaEmpresas">* Listar Empresas</a>
+	</b>
+	<b style="margin:2%">
+		Usuário logado: ${usuarioLogado.login}
+		<c:import url="logout-parcial.jsp"/>
+	</b>
+	<hr>
+	</div>
 	<div class="form-group">
-		<b>Empresas | <a href="${unicoLink}?acao=NovaEmpresa">+ Nova
-				Empresa</a> | <a href="${unicoLink}?acao=ListaEmpresas">* Listar
-				Empresas</a></b>
-		<hr>
 		<div align="center">
 			<table>
 				<thead>

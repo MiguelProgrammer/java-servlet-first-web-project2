@@ -7,10 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<div style="text-align: right;background-color: whitesmoke">
+	<hr>
+	<b style="margin-right:50%">Nova Empresa
+		| <a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a>
+		| <a href="${unicoLink}?acao=ListaEmpresas">* Listar Empresas</a>
+	</b>
+	<b style="margin:2%">
+		Usuário logado: ${usuarioLogado.login}
+		<c:import url="logout-parcial.jsp"/>
+	</b>
+	<hr>
+	</div>
+
 	<div class="form-group">
-		<b>Nova Empresa | 
-			<a href="${unicoLink}?acao=ListaEmpresas">* Listar Empresas</a></b>
-		<hr>
 		<div align="center">
 			<form action="${linkNovaEmpresa}" method="post"
 				style="border: 1px solid lightgray; width: 30%;">
