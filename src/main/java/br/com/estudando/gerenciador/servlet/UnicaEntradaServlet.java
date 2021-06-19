@@ -29,13 +29,13 @@ public class UnicaEntradaServlet extends HttpServlet {
 		String nomeDaClasse = "br.com.estudando.gerenciador.acao." + acao;
 		String pagina = null;
 		
-		HttpSession sessao = request.getSession();
-		Boolean paginaProtegida = !acao.equals("Login") && !acao.equals("LoginForm");
-		
-		if(paginaProtegida && sessao.getAttribute("usuarioLogado") == null) {
-			response.sendRedirect("entrada?acao=LoginForm");
-			return;
-		}
+//		HttpSession sessao = request.getSession();
+//		Boolean paginaProtegida = !acao.equals("Login") && !acao.equals("LoginForm");
+//		
+//		if(paginaProtegida && sessao.getAttribute("usuarioLogado") == null) {
+//			response.sendRedirect("entrada?acao=LoginForm");
+//			return;
+//		}
 		
 		try {
 			Class classe = Class.forName(nomeDaClasse);
