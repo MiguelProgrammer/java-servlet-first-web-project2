@@ -5,6 +5,7 @@
 	<welcome-file-list>
 		<welcome-file>bem-vindo.html</welcome-file>
 	</welcome-file-list>
+	
 
 	<!-- FILTRO UM -->
 	<filter>
