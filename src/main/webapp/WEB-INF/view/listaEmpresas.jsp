@@ -35,23 +35,21 @@ th, td {
 </head>
 <body>
 
-	<div style="text-align: right;background-color: whitesmoke">
-	<hr>
-	<b style="margin-right:60%">Lista de Empresas | 
-		<a href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a>
-	</b>
-	<b style="margin:2%">
-		Usuário logado: ${usuarioLogado.login}
-		<c:import url="logout-parcial.jsp"/>
-	</b>
-	<hr>
+	<div style="text-align: right; background-color: whitesmoke">
+		<hr>
+		<b style="margin-right: 54%">Lista de Empresas | <a
+			href="${unicoLink}?acao=NovaEmpresaForm">+ Nova Empresa</a>
+		</b> <b style="margin: 2%"> Usuário logado: ${usuarioLogado.login} <c:import
+				url="logout-parcial.jsp" />
+		</b>
+		<hr>
 	</div>
 
-	<div class="form-group">
-
-		<div align="center">
-			<table>
-				<thead>
+	<div class="form-group row">
+		<div class="col-sm-2"></div>
+		<div align="center" class="col-sm-8">
+			<table class="table table-bordered">
+				<thead class="table-light">
 					<tr>
 						<th>ID</th>
 						<th>NOME EMPRESA</th>
@@ -66,19 +64,17 @@ th, td {
 							<td>${emp.nome}</td>
 							<td><fmt:formatDate value="${emp.dataAbertura}"
 									pattern="dd/MM/yyyy" /></td>
-							<td>
-								<a id="editar"
-									href="${unicoLink}?acao=MostraEmpresa&idEmpresa=${emp.id}">
-									Editar</a>
-								<a id="remover"
-									href="${unicoLink}?acao=RemoveEmpresa&idEmpresa=${emp.id}">
-									Remover</a>
-							</td>
+							<td><a id="editar"
+								href="${unicoLink}?acao=MostraEmpresa&idEmpresa=${emp.id}">
+									Editar</a> <a id="remover"
+								href="${unicoLink}?acao=RemoveEmpresa&idEmpresa=${emp.id}">
+									Remover</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		<div class="col-sm-2"></div>
 	</div>
 </body>
 </html>
