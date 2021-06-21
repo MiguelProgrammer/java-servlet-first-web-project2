@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -17,6 +18,12 @@ import br.com.estudando.gerenciador.acao.Acao;
 
 //@WebFilter(urlPatterns = "/entrada")
 public class ControladorFiltro implements Filter {
+	
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {}
+	
+	@Override
+	public void destroy() {}
 
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 
@@ -30,7 +37,7 @@ public class ControladorFiltro implements Filter {
 		String pagina = null;
 		
 		try {
-			Class classe = Class.forName(nomeDaClasse);
+			Class<?> classe = Class.forName(nomeDaClasse);
 			@SuppressWarnings("deprecation")
 			Acao ae = (Acao) classe.newInstance();
 			pagina = ae.executa(request, response);

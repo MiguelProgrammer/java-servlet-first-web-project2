@@ -25,15 +25,6 @@ public class UnicaEntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-
-		
-//		HttpSession sessao = request.getSession();
-//		Boolean paginaProtegida = !acao.equals("Login") && !acao.equals("LoginForm");
-//		
-//		if(paginaProtegida && sessao.getAttribute("usuarioLogado") == null) {
-//			response.sendRedirect("entrada?acao=LoginForm");
-//			return;
-//		}
 		String acao = request.getParameter("acao");
 		String nomeDaClasse = "br.com.estudando.gerenciador.acao." + acao;
 		String pagina = null;
