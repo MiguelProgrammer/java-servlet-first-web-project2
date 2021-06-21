@@ -15,7 +15,7 @@
 
 	<filter-mapping>
 		<filter-name>FM</filter-name>
-		<url-pattern>/gerenciador</url-pattern>
+		<url-pattern>/entrada</url-pattern>
 	</filter-mapping>
 
 	<!-- FILTRO DOIS -->
@@ -29,7 +29,7 @@
 
 	<filter-mapping>
 		<filter-name>AF</filter-name>
-		<url-pattern>/gerenciador</url-pattern>
+		<url-pattern>/entrada</url-pattern>
 	</filter-mapping>
 
 	<!-- FILTRO TRÊS -->
@@ -41,7 +41,7 @@
 
 	<filter-mapping>
 		<filter-name>CF</filter-name>
-		<url-pattern>/gerenciador</url-pattern>
+		<url-pattern>/entrada</url-pattern>
 	</filter-mapping>
 
 
